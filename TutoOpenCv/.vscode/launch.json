@@ -6,6 +6,22 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestFunc",
+            "request": "launch",
+            "mainClass": "TestFunc",
+            "projectName": "TutoOpenCv_56708bcb",
+            "vmArgs": "-Djava.library.path=/Users/Ibrahim/Tools/opencv-2.4.13.6/build/lib"
+        },
+        {
+            "type": "java",
+            "name": "AnalyseVideo",
+            "request": "launch",
+            "mainClass": "AnalyseVideo",
+            "projectName": "TutoOpenCv_56708bcb",
+            "vmArgs": "-Djava.library.path=/Users/Ibrahim/Tools/opencv-2.4.13.6/build/lib"
+        },
+        {
+            "type": "java",
             "name": "BGRtoHSV",
             "request": "launch",
             "mainClass": "BGRtoHSV",

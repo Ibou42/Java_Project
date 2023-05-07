@@ -1,5 +1,6 @@
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Arrays;
 import org.opencv.core.*;
 import org.opencv.highgui.*;
@@ -32,7 +33,11 @@ public class Principale {
 		List<MatOfPoint> ListeContours= MaBibliothequeTraitementImage.ExtractContours(saturee);
 		int i=0;
 		double [] scores=new double [6];
+
+		//Creation liste des panneaux
+		ArrayList<Mat> res = new ArrayList<Mat>();
 		//Pour tous les contours de la liste
+		
 		for (MatOfPoint contour: ListeContours  ){
 			i++;
 			objetrond=MaBibliothequeTraitementImage.DetectForm(m,contour);
@@ -51,16 +56,31 @@ public class Principale {
 				double scoremax=-1;
 				int indexmax=0;
 				for(int j=0;j<scores.length;j++){
-					if (scores[j]>scoremax){scoremax=scores[j];indexmax=j;}}	
+					if (scores[j]>scoremax){
+						scoremax=scores[j];
+						indexmax=j;
+					}
+				}	
 				if(scoremax<0){System.out.println("Aucun Panneau d�t�ct�");}
 				else{switch(indexmax){
-				case -1:;break;
-				case 0:System.out.println("Panneau 30 d�t�ct�");break;
-				case 1:System.out.println("Panneau 50 d�t�ct�");break;
-				case 2:System.out.println("Panneau 70 d�t�ct�");break;
-				case 3:System.out.println("Panneau 90 d�t�ct�");break;
-				case 4:System.out.println("Panneau 110 d�t�ct�");break;
-				case 5:System.out.println("Panneau interdiction de d�passer d�t�ct�");break;
+					case 0:System.out.println("Panneau 30 d�t�ct�");
+					res.add(Highgui.imread("/Users/ibrahim/Java_Project/TutoOpenCv/assets/ref30.jpg"));
+					break;
+					case 1:System.out.println("Panneau 50 d�t�ct�");
+					res.add(Highgui.imread("/Users/ibrahim/Java_Project/TutoOpenCv/assets/ref50.jpg"));
+					break;
+					case 2:System.out.println("Panneau 70 d�t�ct�");
+					res.add(Highgui.imread("/Users/ibrahim/Java_Project/TutoOpenCv/asets/ref70.jpg"));
+					break;
+					case 3:System.out.println("Panneau 90 d�t�ct�");
+					res.add(Highgui.imread("/Users/ibrahim/Java_Project/TutoOpenCv/assets/ref90.jpg"));
+					break;
+					case 4:System.out.println("Panneau 110 d�t�ct�");
+					res.add(Highgui.imread("/Users/ibrahim/Java_Project/TutoOpenCv/assets/ref110.jpg"));
+					break;
+					case 5:System.out.println("Panneau interdiction de d�passer d�t�ct�");
+					res.add(Highgui.imread("/Users/ibrahim/Java_Project/TutoOpenCv/assets/refdouble.jpg"));
+					break;
 				}}
 
 			}
