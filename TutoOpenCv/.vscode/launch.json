@@ -1,0 +1,70 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "BGRtoHSV",
+            "request": "launch",
+            "mainClass": "BGRtoHSV",
+            "projectName": "TutoOpenCv_56708bcb",
+            "vmArgs": "-Djava.library.path=/Users/Ibrahim/Tools/opencv-2.4.13.6/build/lib"
+        },
+        {
+            "type": "java",
+            "name": "Principale",
+            "request": "launch",
+            "mainClass": "Principale",
+            "projectName": "TutoOpenCv_56708bcb",
+            "vmArgs": "-Djava.library.path=/Users/Ibrahim/Tools/opencv-2.4.13.6/build/lib"
+        },
+        {
+            "type": "java",
+            "name": "CanauxCouleurs",
+            "request": "launch",
+            "mainClass": "CanauxCouleurs",
+            "projectName": "TutoOpenCv_56708bcb",
+            "vmArgs": "-Djava.library.path=/Users/Ibrahim/Tools/opencv-2.4.13.6/build/lib"
+        },
+        {
+            "type": "java",
+            "name": "ReadImage",
+            "request": "launch",
+            "mainClass": "ReadImage",
+            "projectName": "TutoOpenCv_56708bcb",
+            "vmArgs": "-Djava.library.path=/Users/Ibrahim/Tools/opencv-2.4.13.6/build/lib"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "TutoOpenCv_56708bcb",
+            "vmArgs": "-Djava.library.path=/Users/Ibrahim/Tools/opencv-2.4.13.6/build/lib"
+        },
+        {
+            "type": "java",
+            "name": "Exercice1",
+            "request": "launch",
+            "mainClass": "Exercice1",
+            "projectName": "TutoOpenCv_56708bcb",
+            "vmArgs": "-Djava.library.path=/Users/Ibrahim/Tools/opencv-2.4.13.6/build/lib"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "FirstApp",
+            "request": "launch",
+            "mainClass": "FirstApp",
+            "projectName": "TutoOpenCv_56708bcb",
+            "vmArgs": "-Djava.library.path=/Users/Ibrahim/Tools/opencv-2.4.13.6/build/lib"
+        }
+    ]
+}
