@@ -39,52 +39,36 @@ public class AnalyseVideo {
 		jframe.setVisible(true);
 
 		Mat frame = new Mat();
-		VideoCapture camera = new VideoCapture("/Users/ibrahim/Java_Project/TutoOpenCv/assets/video1.mp4");
-		Mat PanneauAAnalyser = null;
+		VideoCapture camera = new VideoCapture("/Users/ibrahim/Java_Project/TutoOpenCv/assets/video2.mp4");
+		Mat objetrond = null;
 
-			while (camera.read(frame)) {
-			// completer		
-			//transformation hsv 
-			Mat imageTransformee=MaBibliothequeTraitementImage.transformeBGRversHSV(frame);
-			// saturation des rouges 
-			Mat imageSaturee=MaBibliothequeTraitementImage.seuillage(imageTransformee, 6, 170, 110);	
-			//liste de contours 
-			List<MatOfPoint> ListeContours= MaBibliothequeTraitementImage.ExtractContours(imageSaturee);
-			int i=0;
-			//je test si y'a des contours 
+		while (camera.read(frame)) {
+			// completer
+			Mat transformee=MaBibliothequeTraitementImage.transformeBGRversHSV(frame);
+			Mat saturee=MaBibliothequeTraitementImage.seuillage(transformee, 6, 170, 110);
+			//Imgproc.GaussianBlur(frame, objetrond, null, 0, 0, 0);
+			List<MatOfPoint> ListeContours= MaBibliothequeTraitementImage.ExtractContours(saturee);
+			
 			for (MatOfPoint contour: ListeContours  ){
-				i++;
-				PanneauAAnalyser=MaBibliothequeTraitementImage.DetectForm(imageSaturee,contour);
+			
+				objetrond=MaBibliothequeTraitementImage.DetectForm(frame,contour);
+				if (objetrond!=null){
+				MaBibliothequeTraitementImage.afficheImage("Objet rond", objetrond);
+				identifiepanneau(objetrond);
+				}
 
-				if (identifiepanneau(PanneauAAnalyser)==0){
-					System.out.println("Panneau 30 d�t�ct�");
-				}
-				else if (identifiepanneau(PanneauAAnalyser)==1){
-					System.out.println("Panneau 50 d�t�ct�");
-				}
-				else if (identifiepanneau(PanneauAAnalyser)==2){
-					System.out.println("Panneau 70 d�t�ct�");
-				}
-				else if (identifiepanneau(PanneauAAnalyser)==3){
-					System.out.println("Panneau 90 d�t�ct�");
-				}
-				else if (identifiepanneau(PanneauAAnalyser)==4){
-					System.out.println("Panneau 110 d�t�ct�");
-				}
-				else if (identifiepanneau(PanneauAAnalyser)==5){
-					System.out.println("Panneau interdiction depassement");
-				}
-				else{
-					System.out.println("Aucun panneau");
-				}				
+
 			}
-			//J'affiche le panneau de reference et la phrase 
+
+
+
 
 			ImageIcon image = new ImageIcon(Mat2bufferedImage(frame));
 			vidpanel.setIcon(image);
 			vidpanel.repaint();
 		}
 	}
+	
 
 
 
@@ -122,9 +106,11 @@ public class AnalyseVideo {
 			double scoremax=scores[0];
 
 			for(int j=1;j<scores.length;j++){
-				if (scores[j]>scoremax){scoremax=scores[j];indexmax=j;}}	
-
-
+				if (scores[j]>scoremax){
+					scoremax=scores[j];
+					indexmax=j;
+				}
+			}	
 		}
 		return indexmax;
 	}

@@ -5,6 +5,7 @@ import java.util.Arrays;
 import org.opencv.core.*;
 import org.opencv.highgui.*;
 import utilitaireAgreg.MaBibliothequeTraitementImage;
+
 public class Principale {
 
 	public static void main(String[] args)
@@ -22,7 +23,7 @@ public class Principale {
 		MaBibliothequeTraitementImage.afficheImage("Saturation des rouges", imageSaturee);
 		
 		//Ouverture le l'image et saturation des rouges
-		Mat m=Highgui.imread("/Users/ibrahim/Java_Project/TutoOpenCv/assets/p10.jpg",Highgui.CV_LOAD_IMAGE_COLOR);
+		Mat m=Highgui.imread("/Users/ibrahim/Java_Project/TutoOpenCv/assets/p7.jpg",Highgui.CV_LOAD_IMAGE_COLOR);
 		MaBibliothequeTraitementImage.afficheImage("Image test�e", m);
 		Mat transformee=MaBibliothequeTraitementImage.transformeBGRversHSV(m);
 		//la methode seuillage est ici extraite de l'archivage jar du meme nom 
@@ -82,10 +83,7 @@ public class Principale {
 					res.add(Highgui.imread("/Users/ibrahim/Java_Project/TutoOpenCv/assets/refdouble.jpg"));
 					break;
 				}}
-
 			}
 		}	
-
-
 	}
 }

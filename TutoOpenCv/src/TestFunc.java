@@ -41,6 +41,7 @@ import org.opencv.imgproc.Imgproc;
 public class TestFunc{
     public static void main(String[] args){ 
         Fonctions.detect_panneau_image("/Users/ibrahim/Java_Project/TutoOpenCv/assets/p10.jpg");
+        Fonctions.detect_panneau_video("/Users/ibrahim/Java_Project/TutoOpenCv/assets/video2.mp4");
 
 
     }
